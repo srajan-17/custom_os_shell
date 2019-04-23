@@ -55,8 +55,24 @@ int main() {
 			strcpy(args[j], ptr);
 		}
 
-        if (strcmp(args[0], "EXIT*") == 0) 		// If user entered "EXIT*"
-			break;
+        if (strcmp(args[0], "EXIT*") == 0){
+            char ch = 'f'; 
+
+            printf("Group members: \n");
+            printf("Arslan Saeed\n");
+            printf("Ishraq Khan\n");
+            printf("Raymund Rodriguez\n");
+            printf("Siddharth Rajan\n");
+            printf("Press enter to exit: \n"); 
+
+            while(ch != '\n'){
+                scanf("%c", &ch);
+            }
+        
+        break;
+         
+        } 		// If user entered "EXIT*"
+			
 
         else if (strcmp(args[0], "cd*") == 0) {	    // If user entered "cd*"
 			chdir((args[1]) ? args[1] : "..");      // Change directory to whatever the user typed or the parent directory
