@@ -1,7 +1,7 @@
 // Siddharth Rajan
 // Arslan Saeed
 // Ishraq Khan
-// Raymond Rodriguez
+// Raymund Rodriguez
 // CSC 33200 Shell Project
 
 #include <stdio.h>
@@ -55,7 +55,7 @@ int main() {
 			strcpy(args[j], ptr);
 		}
 
-        if (strcmp(args[0], "EXIT*") == 0){
+        if (strcmp(args[0], "EXIT*") == 0) {    // If user entered "EXIT*"
             char ch = 'f'; 
 
             printf("Group members: \n");
@@ -65,15 +65,13 @@ int main() {
             printf("Siddharth Rajan\n");
             printf("Press enter to exit: \n"); 
 
-            while(ch != '\n'){
+            while(ch != '\n') {
                 scanf("%c", &ch);
             }
         
         break;
-         
-        } 		// If user entered "EXIT*"
+        }
 			
-
         else if (strcmp(args[0], "cd*") == 0) {	    // If user entered "cd*"
 			chdir((args[1]) ? args[1] : "..");      // Change directory to whatever the user typed or the parent directory
 			for (int i = 0; i < j; ++i) {
@@ -116,8 +114,6 @@ int main() {
 
         printf("! ");
     }
-
-    // Handle case for EXIT* here
 
     return 0;
 }
