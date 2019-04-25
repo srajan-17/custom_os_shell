@@ -38,7 +38,7 @@ int main() {
 	char** args = (char**) calloc(1024 / 64, sizeof(char*));
 
     getcwd(cwd, 1024);
-    printf("%s\n", cwd);
+    printf("\nYou are at %s\n\n", cwd);
 
     printf("! ");
 
@@ -55,19 +55,20 @@ int main() {
 			strcpy(args[j], ptr);
 		}
 
-        if (strcmp(args[0], "EXIT*") == 0) {    // If user entered "EXIT*"
+        if (strcmp(args[0], "Exit*") == 0) {    // If user entered "EXIT*"
             char ch = 'f'; 
 
-            printf("Group members: \n");
-            printf("Arslan Saeed\n");
-            printf("Ishraq Khan\n");
-            printf("Raymund Rodriguez\n");
-            printf("Siddharth Rajan\n");
-            printf("Press enter to exit: \n"); 
+            printf("\nGroup members: \n");
+            printf("\tArslan Saeed\n");
+            printf("\tIshraq Khan\n");
+            printf("\tRaymund Rodriguez\n");
+            printf("\tSiddharth Rajan\n");
+            printf("\nPress enter to exit: "); 
 
             while(ch != '\n') {
                 scanf("%c", &ch);
             }
+            printf("\n");
         
         break;
         }
@@ -81,13 +82,18 @@ int main() {
 			}
             memset(cwd, '\0', 1024);
             getcwd(cwd, 1024);              
-            printf("%s\n", cwd);            // Get new current path/directory and print it
+            printf("\nYou are at %s\n\n", cwd);            // Get new current path/directory and print it
 			printf("! ");
 			continue;
 		}
 
         else if (strcmp(args[0], "shell") == 0) {   // If user entered "shell"
-            // Handle case for shell here
+            printf("\nCustom commands:\n");
+            printf("\tshell: shows a list of custom commands (like this one)\n");
+            printf("\tcd*: goes to the parent directory by default or any other directory and shows the current working directory\n");
+            printf("\tHistory*: shows the last 5 executed commands\n");
+            printf("\tclear*: clears the terminal screen and shows the contents of the current directory\n");
+            printf("\tExit*: shows the names of the people who made this shell and waits for the user to press \'Enter\' to quit it\n\n");
         }
 
         else if (strcmp(args[0], "History*") == 0) {    // If user entered "History*"
