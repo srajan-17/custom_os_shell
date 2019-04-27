@@ -51,9 +51,9 @@ void freeHistory(char** history, int hTimes) {
 // Prints the contents of history array
 void printHistory(char** history, int hTimes) {
 	int end = getHistoryBound(hTimes);
-
+	printf("\n");
 	for (int i = 0; i < end; i++) {
-		printf("%d\t%s\n", hTimes - HISTORY_SIZE + i, history[i]);
+		printf("\t%d\t%s\n", hTimes - HISTORY_SIZE + i, history[i]);
 	}
 
 	printf("\n");
