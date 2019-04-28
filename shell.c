@@ -15,6 +15,7 @@
 
 #define HISTORY_SIZE 5 // Size of history array
 
+// Clear memory used by child in executing a process
 void clr(char* input, char* c, char** args, int n, int fL) {
 	if (args) {
 		for (int i = 0; i < n; ++i) {
@@ -103,6 +104,8 @@ void list(char* dir) {
 }
 
 int main() {
+	
+	// Define variables and pointers used for getting user input and parsing it
 	int j = 0;
 	int status;
 	char* ptr = NULL;
