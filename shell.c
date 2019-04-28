@@ -11,6 +11,7 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <sys/wait.h>
+#include <dirent.h>
 
 #define HISTORY_SIZE 5 // Size of history array
 
@@ -75,6 +76,30 @@ void updateHistory(char* history[], char* input, int* hTimes) {
 	strcpy(history[i], input);
 
 	*hTimes += 1;
+}
+
+// Clears terminal by using ANSI escape sequences
+void clearTerminal() {
+	printf("\033[2J"); // erase display
+	printf("\033[1;1H"); // position cursor at home position
+}
+
+
+// Lists current files in directory specified by cwd
+void list(char* dir) {
+	struct dirent *dirptr = NULL;
+	DIR *cwd = opendir(dir);
+	if (cwd == NULL) {
+		perror("Error: ");
+	}
+	printf("\n");
+
+	while ((dirptr = readdir(cwd)) != NULL) {	// Iterate over opened directory and print contents
+		if (dirptr->d_name[0] != '.') {
+			printf("%s\n", dirptr->d_name);
+		}
+	}
+	printf("\n");
 }
 
 int main() {
@@ -157,6 +182,8 @@ int main() {
 
 		else if (strcmp(args[0], "clear*") == 0) {      // If user entered "clear*"
 			// Handle case for clear* here
+			clearTerminal();
+			list(cwd);
 		}
 
 		else {                                          // If user entered anything else
