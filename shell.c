@@ -96,7 +96,7 @@ void list(char* dir) {
 
 	while ((dirptr = readdir(cwd)) != NULL) {	// Iterate over opened directory and print contents
 		if (dirptr->d_name[0] != '.') {
-			printf("%s\n", dirptr->d_name);
+			printf("\t%s\n", dirptr->d_name);
 		}
 	}
 	printf("\n");
@@ -176,13 +176,12 @@ int main() {
 		}
 
 		else if (strcmp(args[0], "History*") == 0) {    // If user entered "History*"
-			// Handle case for History* here
 			printHistory(history, hTimes);
 		}
 
 		else if (strcmp(args[0], "clear*") == 0) {      // If user entered "clear*"
-			// Handle case for clear* here
 			clearTerminal();
+			printf("Contents of current directory:\n\n");
 			list(cwd);
 		}
 
