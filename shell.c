@@ -51,7 +51,7 @@ void freeHistory(char **history, int hTimes)
 {
 	int end = getHistoryBound(hTimes);
 
-	for (int i = 0; i < HISTORY_SIZE; i++)
+	for (int i = 0; i < end; i++)
 	{
 		free(history[i]);
 	}
@@ -218,7 +218,7 @@ int main()
 
 		printf("! ");
 	}
-	
+
 	char ch = 'f';
 
 	printf("\nGroup members: \n");
