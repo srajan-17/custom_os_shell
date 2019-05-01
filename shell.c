@@ -226,12 +226,7 @@ int main()
 	printf("\tIshraq Khan\n");
 	printf("\tRaymund Rodriguez\n");
 	printf("\tSiddharth Rajan\n");
-	printf("\nPress enter to exit: ");
 
-	while (ch != '\n')
-	{
-		scanf("%c", &ch);
-	}
 	printf("\n");
 
 	freeHistory(history, hTimes);
